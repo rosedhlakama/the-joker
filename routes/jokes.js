@@ -24,8 +24,8 @@ router.get('/profile/:id', (req, res) =>{
       db.getJokesByJoker(req.params.id)
       .then(jokes =>{
         res.render('profile',{
-          id: user.id,
-          joker: user.name,
+          id: jokers.id,
+          joker: jokers.name,
           jokes: jokes,
         })
       })
@@ -34,13 +34,11 @@ router.get('/profile/:id', (req, res) =>{
       })
     })
 })
-<<<<<<< HEAD
-=======
 
->>>>>>> 1c55fc17ee36a56637817247b79c6871de570f36
 router.get('/addJoke', (req, res) => {  
   res.render('./addJoke')
 })
+
 router.post('/addJoke', (req, res) => {  
   let {name, joke} = req.body
   let joker = {name, joke}
