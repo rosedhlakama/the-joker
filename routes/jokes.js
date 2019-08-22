@@ -8,9 +8,10 @@ module.exports = router
 
 
 router.get('/', (req, res) => {
+  let {saved} = req.query
   db.getJoke()
     .then(jokes => {
-      res.render('index', {jokes: jokes})
+      res.render('index', {jokes, saved})
     })
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
@@ -33,3 +34,16 @@ router.get('/profile/:id', (req, res) =>{
       })
     })
 })
+router.get('/addJoke', (req, res) => {  
+  res.render('./addJoke')
+})
+router.post('/addJoke', (req, res) => {  
+  let {name, joke} = req.body
+  let joker = {name, joke}
+  db.addJoke(joker)
+  .then(() => {
+    res.redirect('/?saved=added')
+  })
+})
+
+module.exports = router

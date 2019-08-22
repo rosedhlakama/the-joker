@@ -6,6 +6,7 @@ module.exports = {
   getJoke: getJoke,
   getJoker: getJoker,
   getJokesByJoker: getJokesByJoker,
+  addJoke: addJoke
 }
 
 function getJoke(db = connection) {
@@ -25,4 +26,7 @@ function getJokesByJoker(id, db = connection){
     .select('joke', 'likes')
     .join('jokes', 'jokers.id', 'jokes.joker_id')
     .where('jokes.joker_id', id)
+}
+function addJoke (joker, db = connection){ 
+return db('jokes').insert(joker)
 }
