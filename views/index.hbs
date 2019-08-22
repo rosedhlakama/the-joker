@@ -4,6 +4,12 @@
     <title>Make em laugh!</title>
   </head>
   <body>
+    <a href="/addJoke">Add a joke!</a>
+    {{#if saved}}
+    <div>
+      <p>Your joke has been added 🤣👍 </p>
+    </div>
+    {{/if}}
     <ul>
     {{#each jokes}}
       <li>Username:{{name}} Hilarious Joke:{{joke}}</li>
