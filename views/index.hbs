@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel='stylesheet' href='./stylesheets/styles.css'>
     <title>Make em laugh!</title>
   </head>
   <body>
@@ -12,7 +13,14 @@
     {{/if}}
     <ul>
     {{#each jokes}}
-      <li>Username:{{name}} Hilarious Joke:{{joke}}</li>
+      <li>
+        <div class='username'>Username: {{name}}</div> 
+        <br>
+        <div class='joke'>Hilarious Joke: {{joke}}</div>
+        <br>
+        <button type="button"> This joke is awesome!</button>
+        <button type='button'> What were you thinking??</button>
+      </li>
     {{/each}}
     </ul>
   </body>

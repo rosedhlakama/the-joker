@@ -1,0 +1,25 @@
+.username {
+    color: green;
+    font-size: 20px;
+}
+
+.joke {
+    font-size: 20px;
+    color: purple;
+}
+
+li {
+    border: 5px dashed black;
+    padding: 50px;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: green;
+    font-size: 50px;
+}
+
+button {
+    color: purple;
+}
