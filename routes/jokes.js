@@ -14,4 +14,8 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/addJoke', (req, res) => {
+  
+})
+
 module.exports = router
