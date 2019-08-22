@@ -13,5 +13,4 @@ function getJoke(db = connection) {
 
 function addJoke (joker, db = connection){ 
 return db('jokes').insert(joker)
-} 
-
+}

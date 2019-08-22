@@ -27,6 +27,4 @@ router.post('/addJoke', (req, res) => {
   })
 })
 
-
-
 module.exports = router
