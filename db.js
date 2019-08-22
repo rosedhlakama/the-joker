@@ -13,7 +13,7 @@ function getJoke(db = connection) {
   return db('jokes').select()
 }
 
-function getJoker (id, db = connection){
+function getJoker(id, db=connection){
   return db('jokers')
   .first()
   .select('id', 'joker', 'about')
