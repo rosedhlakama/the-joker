@@ -34,6 +34,10 @@ router.get('/profile/:id', (req, res) =>{
       })
     })
 })
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1c55fc17ee36a56637817247b79c6871de570f36
 router.get('/addJoke', (req, res) => {  
   res.render('./addJoke')
 })

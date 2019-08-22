@@ -13,7 +13,10 @@ function getJoke(db = connection) {
   return db('jokes').select()
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1c55fc17ee36a56637817247b79c6871de570f36
 function getJoker(id, db=connection){
   return db('jokers')
   .first()
@@ -27,6 +30,10 @@ function getJokesByJoker(id, db = connection){
     .join('jokes', 'jokers.id', 'jokes.joker_id')
     .where('jokes.joker_id', id)
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1c55fc17ee36a56637817247b79c6871de570f36
 function addJoke (joker, db = connection){ 
 return db('jokes').insert(joker)
 }
