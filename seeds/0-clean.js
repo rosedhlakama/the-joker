@@ -3,6 +3,7 @@ exports.seed = function (knex, Promise) {
     () => knex(table).del()
 
   return empty('jokes')()
+  return empty('jokers')()
   // Chain calls to empty in
   // order as required, e.g.:
   // .then(empty('profiles'))
