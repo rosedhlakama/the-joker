@@ -10,6 +10,7 @@ module.exports = {
 
 function getJoke(db = connection) {
   return db('jokes').select()
+  .orderBy('likes', 'desc')
 }
 
 function addJoke(joker, db = connection) {
