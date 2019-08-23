@@ -19,8 +19,11 @@
         <br>
         <div class='joke'>Hilarious Joke: {{joke}}</div>
         <br>
-        <button type="button"> This joke is awesome!</button>
-        <button type='button'> What were you thinking??</button>
+        
+        <form action='/' method="post">
+        <input type='hidden' value='{{id}}' name="jokeId">
+        <input type="submit" name="submit"  value="This joke is awesome!">
+        </form>
       </li>
     {{/each}}
     </ul>

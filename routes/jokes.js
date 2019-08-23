@@ -15,6 +15,15 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req,res)=>{
+  let id = req.body.jokeId
+  db.addLike(id)
+  .then(()=> {
+  res.redirect('/')
+  })
+})
+
+
 router.get('/addJoke', (req, res) => {  
   res.render('./addJoke')
 })
@@ -26,5 +35,7 @@ router.post('/addJoke', (req, res) => {
     res.redirect('/?saved=added')
   })
 })
+
+
 
 module.exports = router

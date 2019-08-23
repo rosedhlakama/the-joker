@@ -4,13 +4,26 @@ const connection = require('knex')(config)
 
 module.exports = {
   getJoke: getJoke,
-  addJoke: addJoke
+  addJoke: addJoke,
+  addLike: addLike
 }
 
 function getJoke(db = connection) {
   return db('jokes').select()
 }
 
-function addJoke (joker, db = connection){ 
-return db('jokes').insert(joker)
+function addJoke(joker, db = connection) {
+  return db('jokes').insert(joker)
+}
+
+function addLike(id, db = connection) {
+  return db('jokes')
+    .first()
+    .where('jokes.id', id)
+    .then((result) => {
+      let count = result.likes + 1
+      return db('jokes')
+        .where('jokes.id', id)
+        .update({ likes: count })
+    })
 }
