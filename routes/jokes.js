@@ -28,15 +28,17 @@ router.post('/', (req,res)=>{
 
 
 router.get('/profile/:id', (req, res) =>{
-  db.getJoker(req.params.id)
+    db.getJoker(req.params.id)
     .then(joker =>{
       db.getJokesByJoker(req.params.id)
       .then(jokes =>{
-        res.render('profile',{
-          id: jokers.id,
-          joker: jokers.name,
-          jokes: jokes,
-        })
+       let jokerProfile = {
+         jokerName: jokes[0].joker,
+         jokerAbout: jokes[0].about,
+         jokes: jokes
+       }
+       console.log(jokerProfile)
+        res.render('profile', jokerProfile)
       })
       .catch(err => {
         res.status(500).send('DATABASE ERROR: ' + err.message)

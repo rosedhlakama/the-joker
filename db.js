@@ -24,9 +24,9 @@ function getJoker(id, db=connection){
 }
 
 function getJokesByJoker(id, db = connection){
-  return db('jokers')
-    .select('joke', 'likes')
-    .join('jokes', 'jokers.id', 'jokes.joker_id')
+  return db('jokes')
+    .select('joker', 'about','joke', 'likes')
+    .join('jokers', 'jokers.id', 'jokes.joker_id')
     .where('jokes.joker_id', id)
 }
 
