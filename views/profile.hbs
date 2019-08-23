@@ -1,0 +1,14 @@
+<h1 class="profile-head">Joker {{jokers.joker}} Page</h1>
+
+    <h3>Jokes by {{jokers.joker}}</h3>
+
+{{!-- list of user's submites jokes --}}
+<div class="profileJokesList">
+    {{#each jokes}}
+        <p class='joke'>
+            {{joke}}
+        </p>
+
+    {{/each}}
+</div>
+

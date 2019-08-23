@@ -5,7 +5,10 @@ const connection = require('knex')(config)
 module.exports = {
   getJoke: getJoke,
   addJoke: addJoke,
-  addLike: addLike
+  addLike: addLike,
+  getJoker: getJoker,
+  getJokesByJoker: getJokesByJoker,
+  addJoke: addJoke
 }
 
 function getJoke(db = connection) {
@@ -13,7 +16,21 @@ function getJoke(db = connection) {
   .orderBy('likes', 'desc')
 }
 
-function addJoke(joker, db = connection) {
+function getJoker(id, db=connection){
+  return db('jokers')
+  .first()
+  .select('id', 'joker', 'about')
+  .where('id', id)
+}
+
+function getJokesByJoker(id, db = connection){
+  return db('jokers')
+    .select('joke', 'likes')
+    .join('jokes', 'jokers.id', 'jokes.joker_id')
+    .where('jokes.joker_id', id)
+}
+
+function addJoke (joker, db = connection){ 
   return db('jokes').insert(joker)
 }
 
