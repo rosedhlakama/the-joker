@@ -8,7 +8,7 @@
     "dev": "nodemon index",
     "start": "node index",
     "test": "jest",
-    "postinstall":"webpack && knex_migrate:latest"
+    "postinstall":"knex_migrate:latest"
   },
   "repository": {
     "type": "git",
