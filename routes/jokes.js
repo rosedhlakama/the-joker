@@ -32,12 +32,11 @@ router.get('/profile/:id', (req, res) =>{
     .then(joker =>{
       db.getJokesByJoker(req.params.id)
       .then(jokes =>{
-       let jokerProfile = {
+        let jokerProfile = {
          jokerName: jokes[0].joker,
          jokerAbout: jokes[0].about,
          jokes: jokes
        }
-       console.log(jokerProfile)
         res.render('profile', jokerProfile)
       })
       .catch(err => {
